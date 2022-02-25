@@ -1,7 +1,7 @@
 const Employee = require("./Employee")
 
 class Engineer extends Employee {
-    constructor(employeeName, employeeID, employeeEmail)
+    constructor(name, id, email)
 }
 
 module.exports = Engineer;

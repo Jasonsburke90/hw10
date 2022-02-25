@@ -1,7 +1,8 @@
-// require lib functions
+// require inquirer and fs
 const fs = require("fs");
 const inquirer = require("inquirer");
 
+// require lib functions
 const Manager = require("./lib/Manager");
 
 const employees = [];
@@ -39,15 +40,16 @@ function createManager() {
         answer.name,
         answer.id,
         answer.email,
-        answer.employeeOffice
+        answer.officeNumber
       );
       employees.push(manager);
+      console.log(employees);
     });
-  console.log(employees);
   // call function createEmployee
 }
 
 // add function createEmployee, with new inquirer request
+
 // do you want to add more employees?
 // do you want to add an engineer or an intern
 // add inquirer prompts for engineers and interns
