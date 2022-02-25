@@ -70,7 +70,7 @@ function createEmployee() {
       {
         name: "id",
         type: "input",
-        message: "Enter manager's ID #",
+        message: "Enter employee's ID #",
       },
 
       {
