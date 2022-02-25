@@ -9,7 +9,7 @@ const Engineer = require("./lib/Engineer");
 
 const employees = [];
 
-// ask inquirer questions for manager
+// function to add a manager
 function createManager() {
   inquirer
     .prompt([
@@ -50,7 +50,7 @@ function createManager() {
     });
 }
 
-// add function createEmployee, with new inquirer request
+// function to add as many engineers and employees as you need
 function createEmployee() {
   inquirer
     .prompt([
@@ -117,7 +117,7 @@ function createEmployee() {
       }
     });
 }
-// prompt for if user would like to add additional employees
+// prompt user if they would like to add additional employees
 function addEmployee() {
   inquirer
     .prompt([
@@ -136,10 +136,27 @@ function addEmployee() {
         createEmployee();
       } else {
         // push to HTML
-        return;
+        generateHTML;
       }
     });
 }
+
+// TODO GENERATE HTML FUNCTION ADD CARDS FOR EACH EMPLOYEE IN ARRAY
+const generateHTML = (employees) => {
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Profile Generator</title>
+</head>
+<body>
+    
+</body>
+</html>`;
+};
+// TODO - add roles to the function so that role is defined and can show up on the card
 
 function init() {
   createManager();
