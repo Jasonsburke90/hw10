@@ -90,7 +90,7 @@ function createEmployee() {
         name: "school",
         type: "input",
         when: (answers) => answers.role === "intern",
-        message: "Enter intern's school's name",
+        message: "Enter intern's school name",
       },
     ])
     .then((answer) => {
@@ -103,19 +103,43 @@ function createEmployee() {
         );
         employees.push(engineer);
         console.log(employees);
+        addEmployee();
       } else if (answer.role === "intern") {
         const intern = new Intern(
           answer.name,
           answer.id,
           answer.email,
-          answer.github
+          answer.school
         );
         employees.push(intern);
         console.log(employees);
+        addEmployee();
       }
     });
 }
-// do you want to add more employees? if yes, createemployee()
+// prompt for if user would like to add additional employees
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        name: "finished",
+        type: "list",
+        choices: [
+          "I would like to add an additional employee",
+          "I am finished adding employees",
+        ],
+        message: "Would you like to add additional employees",
+      },
+    ])
+    .then((answer) => {
+      if (answer.finished === "I would like to add an additional employee") {
+        createEmployee();
+      } else {
+        // push to HTML
+        return;
+      }
+    });
+}
 
 function init() {
   createManager();
