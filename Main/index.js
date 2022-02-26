@@ -139,17 +139,12 @@ function addEmployee() {
         // push to HTML
         generateHTML();
         const generateHTMLDoc = generateHTML();
-        fs.writeFile(
-          "index.html",
-          generateHTMLDoc,
-          process.argv[2],
-          (err) =>
-            err
-              ? console.error(err)
-              : console.log(
-                  "You have built your team!  Open index.html to see the results"
-                ),
-          generateCards()
+        fs.writeFile("index.html", generateHTMLDoc, process.argv[2], (err) =>
+          err
+            ? console.error(err)
+            : console.log(
+                "You have built your team!  Open index.html to see the results"
+              )
         );
       }
     });
@@ -181,6 +176,7 @@ function generateHTML() {
 </head>
 <body>
 <h1>Our team</h1> 
+${generateCards()}
 </body>
 </html>`;
   // loop through employees array to generate divs for cards and write to the html file
