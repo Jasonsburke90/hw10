@@ -8,6 +8,7 @@ const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 
 const employees = [];
+var cardHTML = "";
 
 // function to add a manager
 function createManager() {
@@ -138,18 +139,36 @@ function addEmployee() {
         // push to HTML
         generateHTML();
         const generateHTMLDoc = generateHTML();
-        fs.writeFile("index.html", generateHTMLDoc, process.argv[2], (err) =>
-          err
-            ? console.error(err)
-            : console.log(
-                "You have built your team!  Open index.html to see the results"
-              )
+        fs.writeFile(
+          "index.html",
+          generateHTMLDoc,
+          process.argv[2],
+          (err) =>
+            err
+              ? console.error(err)
+              : console.log(
+                  "You have built your team!  Open index.html to see the results"
+                ),
+          generateCards()
         );
       }
     });
 }
 
 // TODO GENERATE HTML FUNCTION ADD CARDS FOR EACH EMPLOYEE IN ARRAY
+function generateCards() {
+  let card = "";
+  employees.forEach((employee) => {
+    card += `<div class="card">
+    <h2>${employee.getRole()}</h2>
+    <p>Name: ${employee.name}</p>
+    <p>ID Number: ${employee.id}</p>
+    <p>Email: ${employee.email}</p>
+    </div>`;
+    // add if statements for manager office, engineer github, intern school
+  });
+  return card;
+}
 
 function generateHTML() {
   return `<!DOCTYPE html>
@@ -161,7 +180,7 @@ function generateHTML() {
     <title>Team Profile Generator</title>
 </head>
 <body>
-    
+<h1>Our team</h1> 
 </body>
 </html>`;
   // loop through employees array to generate divs for cards and write to the html file
