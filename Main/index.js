@@ -8,7 +8,6 @@ const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 
 const employees = [];
-var cardHTML = "";
 
 // function to add a manager
 function createManager() {
@@ -46,7 +45,6 @@ function createManager() {
         answer.officeNumber
       );
       employees.push(manager);
-      console.log(employees);
       createEmployee();
     });
 }
@@ -103,7 +101,6 @@ function createEmployee() {
           answer.github
         );
         employees.push(engineer);
-        console.log(employees);
         addEmployee();
       } else if (answer.role === "intern") {
         const intern = new Intern(
@@ -113,7 +110,7 @@ function createEmployee() {
           answer.school
         );
         employees.push(intern);
-        console.log(employees);
+
         addEmployee();
       }
     });
@@ -158,9 +155,16 @@ function generateCards() {
     <h2>${employee.getRole()}</h2>
     <p>Name: ${employee.name}</p>
     <p>ID Number: ${employee.id}</p>
-    <p>Email: ${employee.email}</p>
-    </div>`;
-    // add if statements for manager office, engineer github, intern school
+    <p>Email: ${employee.email}</p>`;
+    if (employee.getRole() === "Manager") {
+      card += `<p>Office Number ${employee.officeNumber}</p></div>`;
+    }
+    if (employee.getRole() === "Engineer") {
+      card += `<p>Github ${employee.github}</p></div>`;
+    }
+    if (employee.getRole() === "Intern") {
+      card += `<p>School ${employee.school}</p></div>`;
+    }
   });
   return card;
 }
