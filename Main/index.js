@@ -136,14 +136,23 @@ function addEmployee() {
         createEmployee();
       } else {
         // push to HTML
-        generateHTML;
+        generateHTML();
+        const generateHTMLDoc = generateHTML();
+        fs.writeFile("index.html", generateHTMLDoc, process.argv[2], (err) =>
+          err
+            ? console.error(err)
+            : console.log(
+                "You have built your team!  Open index.html to see the results"
+              )
+        );
       }
     });
 }
 
 // TODO GENERATE HTML FUNCTION ADD CARDS FOR EACH EMPLOYEE IN ARRAY
-const generateHTML = (employees) => {
-  const html = `<!DOCTYPE html>
+
+function generateHTML() {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -155,7 +164,10 @@ const generateHTML = (employees) => {
     
 </body>
 </html>`;
-};
+  // loop through employees array to generate divs for cards and write to the html file
+
+  // fs function write to file
+}
 // TODO - add roles to the function so that role is defined and can show up on the card
 
 function init() {
