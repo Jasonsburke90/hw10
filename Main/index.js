@@ -150,7 +150,7 @@ function addEmployee() {
     });
 }
 
-// TODO GENERATE HTML FUNCTION ADD CARDS FOR EACH EMPLOYEE IN ARRAY
+// Generate Cards Function
 function generateCards() {
   let card = "";
   employees.forEach((employee) => {
@@ -164,7 +164,7 @@ function generateCards() {
   });
   return card;
 }
-
+// Generate HTML function
 function generateHTML() {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -179,12 +179,9 @@ function generateHTML() {
 ${generateCards()}
 </body>
 </html>`;
-  // loop through employees array to generate divs for cards and write to the html file
-
-  // fs function write to file
 }
-// TODO - add roles to the function so that role is defined and can show up on the card
 
+// init function
 function init() {
   createManager();
 }
