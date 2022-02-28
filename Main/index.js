@@ -157,13 +157,13 @@ function generateCards() {
     <p>ID Number: ${employee.id}</p>
     <p>Email: ${employee.email}</p>`;
     if (employee.getRole() === "Manager") {
-      card += `<p>Office Number ${employee.officeNumber}</p></div>`;
+      card += `<p>Office Number: ${employee.officeNumber}</p></div>`;
     }
     if (employee.getRole() === "Engineer") {
-      card += `<p>Github ${employee.github}</p></div>`;
+      card += `<p>Github: ${employee.github}</p></div>`;
     }
     if (employee.getRole() === "Intern") {
-      card += `<p>School ${employee.school}</p></div>`;
+      card += `<p>School: ${employee.school}</p></div>`;
     }
   });
   return card;
@@ -177,10 +177,15 @@ function generateHTML() {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Profile Generator</title>
+    <link rel="stylesheet" type="text/css" href="./dist/style.css" />
 </head>
 <body>
-<h1>Our team</h1> 
-${generateCards()}
+<main>
+        <h1 class="header">Our team</h1>
+        <section class="team-box">
+        ${generateCards()}
+        </section>
+    </main>
 </body>
 </html>`;
 }

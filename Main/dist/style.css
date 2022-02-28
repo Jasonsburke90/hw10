@@ -1,0 +1,40 @@
+body {
+  background-color: #fcffe3;
+  margin: 5px;
+  padding: 5px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.card {
+  align-items: center;
+  background-color: #80002a;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px;
+  padding: 5px;
+  outline: 2px dotted #d96076;
+  box-shadow: 5px 5px 2px darkgrey;
+  width: fit-content;
+}
+
+.d-f {
+  display: flex;
+}
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.team-box {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
