@@ -155,12 +155,12 @@ function generateCards() {
     <h2>${employee.getRole()}</h2>
     <p>Name: ${employee.name}</p>
     <p>ID Number: ${employee.id}</p>
-    <p>Email: ${employee.email}</p>`;
+    <p>Email: <a href="mailto: ${employee.email}"> ${employee.email}</a></p>`;
     if (employee.getRole() === "Manager") {
       card += `<p>Office Number: ${employee.officeNumber}</p></div>`;
     }
     if (employee.getRole() === "Engineer") {
-      card += `<p>Github: ${employee.github}</p></div>`;
+      card += `<p>Github: <a href="${employee.github}"> ${employee.github}</a></p></div>`;
     }
     if (employee.getRole() === "Intern") {
       card += `<p>School: ${employee.school}</p></div>`;
