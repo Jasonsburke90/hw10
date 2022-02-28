@@ -160,7 +160,7 @@ function generateCards() {
       card += `<p>Office Number: ${employee.officeNumber}</p></div>`;
     }
     if (employee.getRole() === "Engineer") {
-      card += `<p>Github: <a href="${employee.github}"> ${employee.github}</a></p></div>`;
+      card += `<p>Github: <a href="https://github.com/${employee.github}"> ${employee.github}</a></p></div>`;
     }
     if (employee.getRole() === "Intern") {
       card += `<p>School: ${employee.school}</p></div>`;
